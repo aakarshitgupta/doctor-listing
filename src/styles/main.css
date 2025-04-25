@@ -1,0 +1,202 @@
+/* Reset and basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+  }
+  
+  h1, h2, h3 {
+    color: #1f3a6f;
+  }
+  
+  /* Container for the page layout */
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Search bar container */
+  .search-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Sidebar (sorting and filter panel) */
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 300px;  /* You can adjust this width */
+    gap: 20px;
+  }
+  
+  /* Doctor list container */
+  .doctor-list-container {
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-start;
+  }
+  
+  /* Sort options styling */
+  .sort-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .sort-container h4 {
+    font-size: 1rem;
+    color: #1f3a6f;
+  }
+  
+  .sort-container select {
+    padding: 8px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  .sort-container select:focus {
+    border-color: #1f3a6f;
+  }
+  
+  /* main.css */
+
+/* Filter Panel Styles */
+.filter-panel {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .filter-panel h3 {
+    color: #1f3a6f;
+    margin-bottom: 15px;
+  }
+  
+  .filter-panel label {
+    font-size: 1rem;
+    margin-right: 15px;
+    color: #555;
+  }
+  
+  .filter-panel input[type="radio"],
+  .filter-panel input[type="checkbox"] {
+    margin-right: 5px;
+  }
+  
+  .sort-by,
+  .consultation-mode,
+  .specialties-filter {
+    margin-bottom: 20px;
+  }
+  
+  .filter-panel .sort-select {
+    font-size: 1rem;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  .filter-panel .sort-select:focus {
+    border-color: #1f3a6f;
+  }
+  
+  
+  
+  /* Doctor card styling */
+  .doctor-card {
+    background-color: white;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .doctor-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .doctor-card h3 {
+    font-size: 1.6rem;
+    color: #1f3a6f;
+  }
+  
+  .doctor-card p {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  /* Responsiveness */
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+  
+    .sidebar {
+      width: 100%;
+    }
+  
+    .doctor-list-container {
+      width: 100%;
+    }
+  }
+ /* Autocomplete Search Bar Styles */
+/* main.css */
+
+/* Autocomplete Styles */
+.autocomplete-container {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .autocomplete-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
+  }
+  
+  .autocomplete-input:focus {
+    border-color: #1f3a6f; /* Blue */
+  }
+  
+  .suggestions-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-height: 200px;
+    overflow-y: auto;
+  }
+  
+  .suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .suggestion-item:hover {
+    background-color: #f0f4f8;
+  }
+  
