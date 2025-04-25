@@ -1,20 +1,20 @@
-
 import React, { useState } from 'react';
 
-const AutocompleteSearch = ({ doctors, onSearch }) => {
-  const [searchTerm, setSearchTerm] = useState('');
+const SearchBar = ({ doctors, onSearch }) => {
+  const [searchText, setSearchText] = useState('');
   const [suggestions, setSuggestions] = useState([]);
 
-  const handleChange = (e) => {
-    const value = e.target.value;
-    setSearchTerm(value);
+  const handleSearchChange = (e) => {
+    const query = e.target.value;
+    setSearchText(query);
 
-    if (value) {
+    if (query) {
       const filteredSuggestions = doctors
         .filter((doctor) =>
-          doctor.name.toLowerCase().includes(value.toLowerCase())
+          doctor.name.toLowerCase().includes(query.toLowerCase())
         )
-        .slice(0, 3);
+        .slice(0, 3); // Limit to top 3 suggestions
+
       setSuggestions(filteredSuggestions);
     } else {
       setSuggestions([]);
@@ -22,43 +22,47 @@ const AutocompleteSearch = ({ doctors, onSearch }) => {
   };
 
   const handleSuggestionClick = (suggestion) => {
-    setSearchTerm(suggestion.name);
+    setSearchText(suggestion.name);
     setSuggestions([]);
     onSearch(suggestion.name);
   };
 
-  const handleKeyDown = (e) => {
-    if (e.key === 'Enter') {
-      const selectedDoctor = suggestions[0];
-      if (selectedDoctor) {
-        onSearch(selectedDoctor.name);
-      }
-    }
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    onSearch(searchText);
+    setSuggestions([]);
   };
 
   return (
-    <div className="autocomplete-container">
-      <input
-        type="text"
-        value={searchTerm}
-        onChange={handleChange}
-        onKeyDown={handleKeyDown}
-        placeholder="Search Doctors"
-        className="autocomplete-input"
-      />
-      <div className="suggestions-list">
-        {suggestions.map((doctor) => (
-          <div
-            key={doctor.id}
-            className="suggestion-item"
-            onClick={() => handleSuggestionClick(doctor)}
-          >
-            {doctor.name}
-          </div>
-        ))}
-      </div>
+    <div className="search-container">
+      <form onSubmit={handleSearchSubmit} className="search-form">
+        <div className="search-box-container">
+          <input
+            type="text"
+            value={searchText}
+            onChange={handleSearchChange}
+            placeholder="Search doctors"
+            className="search-box"
+          />
+        </div>
+        <button type="submit" className="search-btn">Search</button>
+      </form>
+
+      {suggestions.length > 0 && (
+        <div className="suggestion-list">
+          {suggestions.map((doctor) => (
+            <div
+              key={doctor.id}
+              className="suggestion-item"
+              onClick={() => handleSuggestionClick(doctor)}
+            >
+              {doctor.name}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
 
-export default AutocompleteSearch;
+export default SearchBar;
