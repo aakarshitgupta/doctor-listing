@@ -1,4 +1,4 @@
-// src/pages/DoctorListingPage.jsx
+
 import React, { useState, useEffect } from 'react';
 import { fetchDoctors } from '../services/api';
 import SearchBar from '../components/AutoCompleteSearch';

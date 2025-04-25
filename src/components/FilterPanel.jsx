@@ -1,10 +1,10 @@
-// src/components/FilterPanel.jsx
+
 import React from 'react';
 
 const FilterPanel = ({ onSortChange, onFilterChange, specialties }) => {
   return (
     <div className="filter-panel">
-      {/* Sort by Component */}
+      {}
       <div className="sort-by">
         <h3>Sort By</h3>
         <label>
@@ -27,7 +27,7 @@ const FilterPanel = ({ onSortChange, onFilterChange, specialties }) => {
         </label>
       </div>
 
-      {/* Consultation Mode Filter (Radio Buttons) */}
+      {}
       <div className="consultation-mode">
         <h3>Consultation Type</h3>
         <label>
@@ -50,7 +50,7 @@ const FilterPanel = ({ onSortChange, onFilterChange, specialties }) => {
         </label>
       </div>
 
-      {/* Specialties Filter (Checkboxes) */}
+      {}
       <div className="specialties-filter">
         <h3>Specialties</h3>
         {specialties.map((specialty) => (

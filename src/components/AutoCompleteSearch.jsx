@@ -1,4 +1,4 @@
-// src/components/AutocompleteSearch.jsx
+
 import React, { useState } from 'react';
 
 const AutocompleteSearch = ({ doctors, onSearch }) => {
@@ -9,7 +9,6 @@ const AutocompleteSearch = ({ doctors, onSearch }) => {
     const value = e.target.value;
     setSearchTerm(value);
 
-    // Filter doctors based on search term (show top 3 matches)
     if (value) {
       const filteredSuggestions = doctors
         .filter((doctor) =>
@@ -25,14 +24,14 @@ const AutocompleteSearch = ({ doctors, onSearch }) => {
   const handleSuggestionClick = (suggestion) => {
     setSearchTerm(suggestion.name);
     setSuggestions([]);
-    onSearch(suggestion.name); // Trigger the search filter
+    onSearch(suggestion.name);
   };
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       const selectedDoctor = suggestions[0];
       if (selectedDoctor) {
-        onSearch(selectedDoctor.name); // Trigger the search filter
+        onSearch(selectedDoctor.name);
       }
     }
   };

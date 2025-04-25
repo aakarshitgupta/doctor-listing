@@ -1,4 +1,4 @@
-// src/hooks/useFilters.js
+
 import { useState, useEffect } from 'react';
 import { useLocation, useHistory } from 'react-router-dom';
 
